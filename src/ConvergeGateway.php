@@ -185,21 +185,47 @@ class ConvergeGateway extends AbstractGateway
         return $this->setParameter('password', $value);
     }
 
+    /**
+     * Get the ssl_show_form parameter
+     *
+     * @return boolean
+     */
     public function getSslShowForm()
     {
         return $this->getParameter('ssl_show_form');
     }
 
+    /**
+     * Set the ssl_show_form parameter
+     *
+     * This should be false.
+     *
+     * @param boolean $value
+     * @return ConvergeGateway provides a fluent interface
+     */
     public function setSslShowForm($value)
     {
         return $this->setParameter('ssl_show_form', $value);
     }
 
+    /**
+     * Get the ssl_result_format parameter
+     *
+     * @return string
+     */
     public function getSslResultFormat()
     {
         return $this->getParameter('ssl_result_format');
     }
 
+    /**
+     * Set the ssl_result_format parameter.
+     *
+     * This should be "ASCII"
+     *
+     * @param string $value
+     * @return ConvergeGateway provides a fluent interface
+     */
     public function setSslResultFormat($value)
     {
         return $this->setParameter('ssl_result_format', $value);
@@ -221,6 +247,24 @@ class ConvergeGateway extends AbstractGateway
     public function purchase(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\Elavon\Message\ConvergePurchaseRequest', $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     * @return \Omnipay\Elavon\Message\ConvergeRefundRequest
+     */
+    public function refund(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Elavon\Message\ConvergeRefundRequest', $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     * @return \Omnipay\Elavon\Message\ConvergeVoidRequest
+     */
+    public function void(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Elavon\Message\ConvergeVoidRequest', $parameters);
     }
 
     /**
